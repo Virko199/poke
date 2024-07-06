@@ -1,9 +1,14 @@
 import { configureStore, ConfigureStoreOptions } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import pokedexReducer from "./modules/Pokedex/pokedexSlice";
+import pokemonReducer from "./modules/Pokemon/pokemonSlice";
 
 const createStore = (options?: ConfigureStoreOptions["preloadedState"]) =>
   configureStore({
-    reducer: {},
+    reducer: {
+      pokedex: pokedexReducer,
+      pokemon: pokemonReducer,
+    },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
     ...options,
   });
